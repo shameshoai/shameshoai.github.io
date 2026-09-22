@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="大连金州华臣影城官方首页，提供最新电影排期、在线选座购票、影城地址及会员服务信息。">
+    <meta name="keywords" content="大连金州华臣影城, 大连影城, 金州电影, 华臣影城, 电影票, 在线购票">
+    <title>大连金州华臣影城-大连金州最新电影排期与在线购票平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e50914; /* 影院红 */
+            --primary-hover: #b20710;
+            --secondary-color: #1a1a1a;
+            --text-color: #333;
+            --text-light: #666;
+            --bg-light: #f5f5f5;
+            --white: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部导航 */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-color);
+            font-size: 16px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.7)), url('https://picsum.photos/seed/cinema/1600/900.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        /* 筛选与导航条 */
+        .section-nav {
+            background: var(--white);
+            padding: 20px 0;
+            margin-top: -30px;
+            position: relative;
+            z-index: 10;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .movie-tabs {
+            display: flex;
+            gap: 30px;
+        }
+
+        .movie-tab {
+            padding-bottom: 10px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-light);
+            border-bottom: 3px solid transparent;
+        }
+
+        .movie-tab.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .location-selector select {
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            color: var(--text-color);
+        }
+
+        /* 电影列表 */
+        .movie-section {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 25px;
+            border-left: 5px solid var(--primary-color);
+            padding-left: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 25px;
+        }
+
+        .movie-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .poster-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 140%; /* 5:7 aspect ratio */
+        }
+
+        .poster-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie-info {
+            padding: 15px;
+        }
+
+        .movie-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .movie-meta {
+            font-size: 12px;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .movie-tags span {
+            background-color: #ffebeb;
+            color: var(--primary-color);
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-size: 10px;
+        }
+
+        .showtime-btn {
+            display: block;
+            width: 100%;
+            text-align: center;
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 8px 0;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-top: 10px;
+        }
+
+        .showtime-btn:hover {
+            background-color: var(--primary-color);
+        }
+
+        /* 会员与优惠 */
+        .promo-section {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            padding: 60px 0;
+            margin: 40px 0;
+        }
+
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .promo-item h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        .promo-item p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        /* 影城信息 */
+        .info-section {
+            padding: 40px 0;
+        }
+
+        .info-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        .info-list {
+            background: var(--white);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #ffebeb;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .info-content h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .info-content p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .map-placeholder {
+            background: #eee;
+            height: 300px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            background-image: url('https://picsum.photos/seed/map/600/400.jpg?blur=2');
+            background-size: cover;
+            position: relative;
+        }
+
+        .map-placeholder::before {
+            content: "地图加载区域";
+            background: rgba(255,255,255,0.8);
+            padding: 10px 20px;
+            border-radius: 4px;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #111;
+            color: #999;
+            padding: 50px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .hero {
+                height: 350px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .section-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .movie-tabs {
+                overflow-x: auto;
+                width: 100%;
+            }
+
+            .promo-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .info-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .movie-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶部导航 -->
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18"></rect>
+                    <line x1="7" y1="2" x2="7" y2="22"></line>
+                    <line x1="17" y1="2" x2="17" y2="22"></line>
+                    <line x1="2" y1="12" x2="22" y2="12"></line>
+                    <line x1="2" y1="7" x2="7" y2="7"></line>
+                    <line x1="2" y1="17" x2="7" y2="17"></line>
+                    <line x1="17" y1="17" x2="22" y2="17"></line>
+                    <line x1="17" y1="7" x2="22" y2="7"></line>
+                </svg>
+                大连金州华臣影城 <span>ACADEMY</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#movies">热映电影</a></li>
+                    <li><a href="#coming">即将上映</a></li>
+                    <li><a href="#services">会员服务</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn-outline">登录</a>
+                <a href="#" class="btn-primary">立即购票</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero 首屏 -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>沉浸视听，光影大连</h1>
+            <p>大连金州华臣影城为您呈现最新大片。IMAX激光厅、杜比全景声，让每一场观影都成为极致体验。</p>
+            <a href="#movies" class="btn-primary" style="padding: 12px 30px; font-size: 16px;">查看排期购票</a>
+        </div>
+    </section>
+
+    <!-- 筛选导航 -->
+    <div class="container">
+        <div class="section-nav">
+            <div class="movie-tabs">
+                <div class="movie-tab active">热映中</div>
+                <div class="movie-tab">即将上映</div>
+                <div class="movie-tab">IMAX特惠</div>
+                <div class="movie-tab">杜比厅</div>
+            </div>
+            <div class="location-selector">
+                <select>
+                    <option>大连金州华臣影城 (万达广场店)</option>
+                    <option>大连开发区华臣影城</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- 热映电影列表 -->
+    <main class="container movie-section" id="movies">
+        <div class="section-title">
+            <h2>正在热映</h2>
+            <a href="#" style="font-size: 14px; color: var(--text-light);">查看全部 &gt;</a>
+        </div>
+
+        <div class="movie-grid">
+            <!-- 电影卡片 1 -->
+            <article class="movie-card">
+                <div class="poster-wrapper">
+                    <img src="https://picsum.photos/seed/movie1/300/420" alt="电影海报">
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">星际穿越：重启版</h3>
+                    <div class="movie-meta">
+                        <span>2小时15分</span>
+                        <span>科幻/冒险</span>
+                    </div>
+                    <div class="movie-tags">
+                        <span>IMAX 3D</span>
+                        <span>杜比全景声</span>
+                    </div>
+                    <a href="#" class="showtime-btn">立即购票</a>
+                </div>
+            </article>
+
+            <!-- 电影卡片 2 -->
+            <article class="movie-card">
+                <div class="poster-wrapper">
+                    <img src="https://picsum.photos/seed/movie2/300/420" alt="电影海报">
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">深海迷航</h3>
+                    <div class="movie-meta">
+                        <span>1小时58分</span>
+                        <span>悬疑/惊悚</span>
+                    </div>
+                    <div class="movie-tags">
+                        <span>普通厅</span>
+                    </div>
+                    <a href="#" class="showtime-btn">立即购票</a>
+                </div>
+            </article>
+
+            <!-- 电影卡片 3 -->
+            <article class="movie-card">
+                <div class="poster-wrapper">
+                    <img src="https://picsum.photos/seed/movie3/300/420" alt="电影海报">
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">夏日回忆录</h3>
+                    <div class="movie-meta">
+                        <span>1小时45分</span>
+                        <span>爱情/剧情</span>
+                    </div>
+                    <div class="movie-tags">
+                        <span>4DX</span>
+                    </div>
+                    <a href="#" class="showtime-btn">立即购票</a>
+                </div>
+            </article>
+
+            <!-- 电影卡片 4 -->
+            <article class="movie-card">
+                <div class="poster-wrapper">
+                    <img src="https://picsum.photos/seed/movie4/300/420" alt="电影海报">
+                </div>
+                <div class="movie-info">
+                    <h3 class="movie-title">速度与激情：终极</h3>
+                    <div class="movie-meta">
+                        <span>2小时30分</span>
+                        <span>动作/赛车</span>
+                    </div>
+                    <div class="movie-tags">
+                        <span>IMAX激光</span>
+                    </div>
+                    <a href="#" class="showtime-btn">立即购票</a>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- 会员与优惠 -->
+    <section class="promo-section">
+        <div class="container promo-grid">
+            <div class="promo-item">
+                <h3>华臣影城会员</h3>
+                <p>注册会员即享积分抵现、生日礼遇及专属折扣，尊享更多观影特权。</p>
+                <a href="#" class="btn-outline" style="border-color: var(--white); color: var(--white);">会员注册</a>
+            </div>
+            <div class="promo-item">
+                <h3>学生特惠</h3>
+                <p>凭有效学生证，每日特定场次享受半价优惠，青春不贵，观影更值。</p>
+                <a href="#" class="btn-outline" style="border-color: var(--white); color: var(--white);">查看规则</a>
+            </div>
+            <div class="promo-item">
+                <h3>团购包场</h3>
+                <p>企业团建、生日派对、求婚观影，专业团队为您策划完美视听盛宴。</p>
+                <a href="#" class="btn-outline" style="border-color: var(--white); color: var(--white);">联系客服</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 影城信息与地址 -->
+    <section class="container info-section" id="services">
+        <div class="section-title">
+            <h2>影城服务与地址</h2>
+        </div>
+        <div class="info-container">
+            <div class="info-list">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                    </div>
+                    <div class="info-content">
+                        <h4>营业时间</h4>
+                        <p>周一至周四 10:00 - 23:30<br>周五至周日 09:30 - 00:00 (24小时场)</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg>
+                    </div>
+                    <div class="info-content">
+                        <h4>交通指南</h4>
+                        <p>公交：乘坐快轨3号线至金马路站下车，步行约5分钟即到。<br>自驾：导航至大连开发区金马路万达广场3楼。</p>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                    </div>
+                    <div class="info-content">
+                        <h4>服务设施</h4>
+                        <p>提供免费停车位（约200个），休息区，售卖机，以及无障碍通道服务。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="map-placeholder" title="地图加载区域">
+                <!-- 占位符，实际应用中可嵌入地图API -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">影城环境</a></li>
+                        <li><a href="#">招贤纳士</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>会员服务</h4>
+                    <ul>
+                        <li><a href="#">会员积分规则</a></li>
+                        <li><a href="#">优惠券兑换</a></li>
+                        <li><a href="#">常见问题</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>帮助中心</h4>
+                    <ul>
+                        <li><a href="#">购票流程</a></li>
+                        <li><a href="#">退改签政策</a></li>
+                        <li><a href="#">联系客服</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>联系方式</h4>
+                    <ul>
+                        <li>电话：0411-8888 8888</li>
+                        <li>邮箱：service@acm-dl.com</li>
+                        <li>地址：大连开发区金马路万达广场3楼</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 大连金州华臣影城 版权所有
+            </div>
+        </div>
+    </footer>
+
+</body>
+                          </html>
