@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="靓丽网为您提供最新的美妆教程、时尚穿搭指南、护肤心得分享及变美技巧，助您发现自身独特魅力，展现自信光彩。">
+    <meta name="keywords" content="靓丽,美妆教程,护肤技巧,时尚穿搭,变美,个人护理">
+    <title>靓丽-发现独特魅力，展现自信光彩的美妆时尚指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d63384;
+            --secondary-color: #6f42c1;
+            --accent-color: #ffc107;
+            --text-dark: #212529;
+            --text-gray: #6c757d;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --border-radius: 12px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 16px;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            outline: none;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--text-dark);
+            background: transparent;
+            color: var(--text-dark);
+        }
+
+        .btn-outline:hover {
+            background: var(--text-dark);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--white);
+            box-shadow: 0 4px 10px rgba(214, 51, 132, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(214, 51, 132, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+            padding: 80px 20px;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(214, 51, 132, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--text-dark);
+        }
+
+        .hero h1 span {
+            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 40px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .search-bar {
+            background: var(--white);
+            padding: 10px;
+            border-radius: 30px;
+            display: flex;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 0 20px;
+            font-size: 16px;
+            outline: none;
+        }
+
+        .search-bar button {
+            background: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 60px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-gray);
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+
+        .cat-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid transparent;
+        }
+
+        .cat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(214, 51, 132, 0.2);
+        }
+
+        .cat-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(214, 51, 132, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: var(--primary-color);
+        }
+
+        .cat-card h3 {
+            margin-bottom: 10px;
+            font-size: 1.25rem;
+        }
+
+        .cat-card p {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* Trending Articles */
+        .trending {
+            padding: 60px 20px;
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .article-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .article-card {
+            background: var(--white);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+        }
+
+        .article-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            background-color: #eee;
+        }
+
+        .article-content {
+            padding: 25px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-tag {
+            font-size: 12px;
+            color: var(--secondary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .article-title {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .article-excerpt {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #999;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+
+        .author {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .author-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #ddd;
+        }
+
+        /* Tips Section */
+        .tips-section {
+            padding: 60px 20px;
+            background: linear-gradient(to right, #fff5f8, #f8f0ff);
+        }
+
+        .tips-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .tips-content {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .tips-content h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .tips-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .tips-list li::before {
+            content: '✓';
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .tips-image {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .tips-image img {
+            width: 100%;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            background: var(--white);
+            transition: background 0.2s;
+        }
+
+        .faq-question:hover {
+            background: #fafafa;
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-gray);
+            display: none;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #ccc;
+            padding: 60px 20px 20px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                height: auto;
+                padding: 15px;
+            }
+
+            nav {
+                margin: 15px 0;
+                width: 100%;
+                overflow-x: auto;
+                padding-bottom: 5px;
+            }
+
+            nav ul {
+                gap: 20px;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .btn {
+                flex: 1;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-container">
+        <a href="#" class="logo">靓丽<span>.</span></a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">美妆教程</a></li>
+                <li><a href="#">护肤心得</a></li>
+                <li><a href="#">时尚穿搭</a></li>
+                <li><a href="#">测评专栏</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="btn btn-outline">登录</button>
+            <button class="btn btn-primary">注册会员</button>
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>发现独特魅力<br><span>展现自信光彩</span></h1>
+            <p>专业的美妆护肤指南与时尚穿搭灵感，为您提供从内而外的全方位美丽方案。</p>
+            <div class="search-bar">
+                <input type="text" placeholder="搜索妆容、产品或穿搭风格...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories">
+        <div class="section-header">
+            <h2>探索美丽领域</h2>
+            <p>选择您感兴趣的方向，开启变美之旅</p>
+        </div>
+        <div class="cat-grid">
+            <div class="cat-card">
+                <div class="cat-icon">💄</div>
+                <h3>美妆教程</h3>
+                <p>从日常通勤到派对晚妆，手把手教你打造精致妆容。</p>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">💧</div>
+                <h3>科学护肤</h3>
+                <p>了解皮肤结构与成分，建立适合您的护肤routine。</p>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">👗</div>
+                <h3>时尚穿搭</h3>
+                <p>掌握色彩搭配与版型选择，穿出个人独特风格。</p>
+            </div>
+            <div class="cat-card">
+                <div class="cat-icon">💅</div>
+                <h3>美甲造型</h3>
+                <p>最新款式的美甲设计与DIY教程，点缀指尖魅力。</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Articles -->
+    <section class="trending">
+        <div class="container">
+            <div class="section-header">
+                <h2>热门推荐</h2>
+                <p>本周最受欢迎的变美干货</p>
+            </div>
+            <div class="article-grid">
+                <!-- Article 1 -->
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/makeup/400/300" alt="新手化妆" class="article-img">
+                    <div class="article-content">
+                        <span class="article-tag">美妆教程</span>
+                        <h3 class="article-title">零基础新手化妆全攻略：三步打造伪素颜妆</h3>
+                        <p class="article-excerpt">想要每天早上多睡半小时？这篇详细的伪素颜妆教程，教你用最简单的步骤修饰瑕疵，呈现自然透亮的好气色。</p>
+                        <div class="article-meta">
+                            <div class="author">
+                                <div class="author-avatar"></div>
+                                <span>美妆师小林</span>
+                            </div>
+                            <span>5分钟前</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 2 -->
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/skincare/400/300" alt="护肤" class="article-img">
+                    <div class="article-content">
+                        <span class="article-tag">护肤心得</span>
+                        <h3 class="article-title">干皮必看：敏感肌冬季补水保湿的正确打开方式</h3>
+                        <p class="article-excerpt">冬季空气干燥，皮肤容易泛红起皮？本文深入分析干皮成因，推荐几款温和有效的保湿精华，帮你稳住水润屏障。</p>
+                        <div class="article-meta">
+                            <div class="author">
+                                <div class="author-avatar"></div>
+                                <span>皮肤科医生李</span>
+                            </div>
+                            <span>1小时前</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Article 3 -->
+                <article class="article-card">
+                    <img src="https://picsum.photos/seed/fashion/400/300" alt="穿搭" class="article-img">
+                    <div class="article-content">
+                        <span class="article-tag">时尚穿搭</span>
+                        <h3 class="article-title">梨形身材穿搭指南：显瘦又高级的搭配公式</h3>
+                        <p class="article-excerpt">梨形身材如何穿出高级感？避开显胖雷区，学会利用高腰线和垂坠面料，轻松穿出纸片人既视感。</p>
+                        <div class="article-meta">
+                            <div class="author">
+                                <div class="author-avatar"></div>
+                                <span>时尚博主Vicky</span>
+                            </div>
+                            <span>3小时前</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="tips-section">
+        <div class="tips-container">
+            <div class="tips-content">
+                <h2>坚持这4个好习惯，让你越活越靓丽</h2>
+                <p style="margin-bottom: 20px; color: #555;">美丽不仅仅是表面的修饰，更是长期生活习惯的积累。养成良好的习惯，能让你由内而外散发光彩。</p>
+                <ul class="tips-list">
+                    <li>保持充足的睡眠，促进皮肤细胞自我修复。</li>
+                    <li>坚持防晒，紫外线是皮肤老化的主要原因。</li>
+                    <li>多喝水，保持身体代谢和皮肤水润。</li>
+                    <li>保持心情愉悦，良好的情绪能改善气色。</li>
+                </ul>
+            </div>
+            <div class="tips-image">
+                <img src="https://picsum.photos/seed/woman/600/400" alt="健康生活方式">
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+        <div class="section-header">
+            <h2>常见问题</h2>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">如何选择适合自己肤质的护肤品？</div>
+            <div class="faq-answer">首先要了解自己的肤质（干性、油性、混合性或敏感性）。可以通过洗脸后不擦干，等待15-20分钟观察皮肤状态来判断。油皮适合清爽控油产品，干皮则需注重滋润保湿。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">新手化妆容易手抖，有什么技巧吗？</div>
+            <div class="faq-answer">建议新手从简单的底妆开始练习，利用美妆蛋晕染边缘。掌握“少量多次”的原则，不要一次性涂抹过厚。多看视频教程，模仿专业博手的动作，熟能生巧。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">想要快速变美，最有效的方法是什么？</div>
+            <div class="faq-answer">快速见效的方法通常涉及发型和穿搭的改变。一个合适的发型可以修饰脸型，整洁的穿搭能提升气质。此外，保持良好的仪态和自信的微笑，是展现靓丽的最快途径。</div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>关于靓丽</h4>
+            <ul>
+                <li><a href="#">品牌故事</a></li>
+                <li><a href="#">联系我们</a></li>
+                <li><a href="#">加入我们</a></li>
+                <li><a href="#">隐私政策</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>栏目导航</h4>
+            <ul>
+                <li><a href="#">美妆教程</a></li>
+                <li><a href="#">护肤心得</a></li>
+                <li><a href="#">时尚穿搭</a></li>
+                <li><a href="#">美甲造型</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>热门话题</h4>
+            <ul>
+                <li><a href="#">裸妆技巧</a></li>
+                <li><a href="#">抗衰老</a></li>
+                <li><a href="#">春季穿搭</a></li>
+                <li><a href="#">平价好物</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>订阅更新</h4>
+            <p style="margin-bottom: 10px; font-size: 0.9rem;">获取最新美妆资讯与独家优惠。</p>
+            <div style="display: flex;">
+                <input type="email" placeholder="您的邮箱" style="padding: 8px; border: none; border-radius: 4px 0 0 4px; flex: 1; outline: none;">
+                <button style="padding: 8px 12px; background: var(--primary-color); color: white; border: none; border-radius: 0 4px 4px 0; cursor: pointer;">订阅</button>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2023 靓丽网 版权所有. 保留所有权利.</p>
+    </div>
+</footer>
+
+<script>
+    // Simple FAQ Interaction
+    document.querySelectorAll('.faq-question').forEach(item => {
+        item.addEventListener('click', () => {
+            const parent = item.parentElement;
+            parent.classList.toggle('active');
+        });
+    });
+
+    // Search Bar Interaction (Mock)
+    document.querySelector('.search-bar button').addEventListener('click', () => {
+        const input = document.querySelector('.search-bar input');
+        if(input.value.trim() !== "") {
+            alert('正在搜索关于 "' + input.value + '" 的内容...');
+        }
+    });
+</script>
+
+</body>
+</html>
