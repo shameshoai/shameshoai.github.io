@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="黑暗物质黄金罗盘 - 官方权威指南。深度解析菲利普·普尔曼《黑暗物质三部曲》中的核心概念、世界观设定、灵魂之兽图鉴及电影改编详解。">
+    <meta name="keywords" content="黑暗物质黄金罗盘, 菲利普·普尔曼, 黑暗物质三部曲, 灵魂之兽, 谢泼德, 拉曼都, 电影, 小说">
+    <title>黑暗物质黄金罗盘 - 权威设定指南与世界观解析</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d4af37; /* 金色 */
+            --primary-dark: #aa8c2c;
+            --secondary-color: #2c3e50; /* 深蓝灰 */
+            --bg-dark: #121212;
+            --bg-card: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --spacing-unit: 1rem;
+            --border-radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid #333;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 60vh;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+            background: linear-gradient(to bottom, rgba(18,18,18,0.3), var(--bg-dark)), 
+                        radial-gradient(circle at center, #3a3a3a 0%, #121212 70%);
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: #000;
+            font-weight: 700;
+            border-radius: 4px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* 介绍区域 */
+        .intro {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin: 0.5rem auto 0;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .intro-text p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .intro-highlight {
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1.5rem;
+            font-style: italic;
+            color: #fff;
+            margin: 1.5rem 0;
+        }
+
+        .intro-image {
+            width: 100%;
+            height: 400px;
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #555;
+            font-size: 1.2rem;
+            border: 1px solid #333;
+        }
+
+        /* 灵魂之兽卡片 */
+        .beasts {
+            padding: 4rem 0;
+            background-color: #181818;
+        }
+
+        .beasts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .beast-card {
+            background-color: var(--bg-card);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #333;
+        }
+
+        .beast-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            border-color: var(--primary-color);
+        }
+
+        .beast-img-placeholder {
+            width: 100%;
+            height: 200px;
+            background-color: #2a2a2a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 3rem;
+        }
+
+        .beast-info {
+            padding: 1.5rem;
+        }
+
+        .beast-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .beast-info p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* 概念解析 */
+        .concepts {
+            padding: 4rem 0;
+        }
+
+        .concept-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .concept-item {
+            background-color: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--border-radius);
+            position: relative;
+        }
+
+        .concept-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), transparent);
+        }
+
+        .concept-item h3 {
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .concept-item p {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 4rem 0;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #333;
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            padding: 1.5rem 0;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question:hover {
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            padding-bottom: 1.5rem;
+            color: var(--text-muted);
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-item:not(.active) .faq-question::after {
+            content: '+';
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #0a0a0a;
+            padding: 3rem 0;
+            margin-top: 4rem;
+            border-top: 1px solid #333;
+            text-align: center;
+            color: #666;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .nav-wrapper {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-image {
+                height: 250px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">DUST & GYROSCOPE</div>
+            <nav>
+                <ul>
+                    <li><a href="#intro" class="active">核心概念</a></li>
+                    <li><a href="#beasts">灵魂之兽</a></li>
+                    <li><a href="#concepts">世界设定</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>黑暗物质<br><span>黄金罗盘</span>指南</h1>
+                <p>探索菲利普·普尔曼笔下的奇幻宇宙，理解灵魂之兽、尘埃与宇宙的奥秘。</p>
+                <a href="#intro" class="btn">开始探索</a>
+            </div>
+        </section>
+
+        <!-- Intro Section -->
+        <section id="intro" class="intro container">
+            <h2 class="section-title">什么是黄金罗盘？</h2>
+            <div class="intro-grid">
+                <div class="intro-text">
+                    <p><strong>黄金罗盘</strong>（Alethiometer），又称真理仪，是《黑暗物质三部曲》中最为核心的神秘法器。它并非普通的指南针，而是一件古老的机械装置，表面覆盖着三十三个刻度盘，象征着宇宙中的三十三个奥秘。</p>
+                    <p>使用者需要通过观察指针的移动，像阅读书籍一样解读罗盘的反馈，从而获得关于现实世界的绝对真理。在拉曼都，它是至高无上的权威象征；而在其他世界，它则被埋藏或遗失。</p>
+                    <div class="intro-highlight">
+                        “它不仅仅是一个工具，它是通往所有知识的钥匙，是理解宇宙本质的媒介。”
+                    </div>
+                    <p>在故事中，它通常由拉曼都的皇帝或其代理人持有，被用来回答任何问题，无论是关于天气、政治还是魔法。</p>
+                </div>
+                <div class="intro-image">
+                    <span>[罗盘外观示意图]</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Soul Beast Section -->
+        <section id="beasts" class="beasts">
+            <div class="container">
+                <h2 class="section-title">灵魂之兽（Daemons）</h2>
+                <p style="text-align: center; color: var(--text-muted); margin-bottom: 3rem;">
+                    在这个宇宙中，每个人的灵魂都化身为一只动物，伴随其左右。
+                </p>
+                <div class="beasts-grid">
+                    <article class="beast-card">
+                        <div class="beast-img-placeholder">🦁</div>
+                        <div class="beast-info">
+                            <h3>莱拉·贝拉克科拉</h3>
+                            <p>莱拉拥有一只名为<span style="color:var(--primary-color)">凯勒坎佩尔</span>(Käyttäjä)的北极熊。凯勒坎佩尔代表着莱拉的力量、好奇心和保护欲。在莱拉成年前，凯勒坎佩尔会不断变化形态，象征着莱拉正在探索和确立自己的身份。</p>
+                        </div>
+                    </article>
+                    <article class="beast-card">
+                        <div class="beast-img-placeholder">🦊</div>
+                        <div class="beast-info">
+                            <h3>威尔·帕卡德</h3>
+                            <p>威尔的灵魂之兽是一只<span style="color:var(--primary-color)">狐狸</span>。狐狸象征着威尔的狡黠、适应能力和敏锐的观察力，同时也反映了他作为探险者和科学家的特质。</p>
+                        </div>
+                    </article>
+                    <article class="beast-card">
+                        <div class="beast-img-placeholder">🐈</div>
+                        <div class="beast-info">
+                            <h3>玛丽·莫尔顿</h3>
+                            <p>玛丽拥有一只<span style="color:var(--primary-color)">猫</span>。猫通常代表独立、神秘和直觉。作为一位勇敢的女性科学家，玛丽的猫体现了她独立思考和探索未知的精神。</p>
+                        </div>
+                    </article>
+                    <article class="beast-card">
+                        <div class="beast-img-placeholder">🐺</div>
+                        <div class="beast-info">
+                            <h3>李·斯科尔斯比</h3>
+                            <p>李是一名飞行员，他的灵魂之兽是一只<span style="color:var(--primary-color)">狼</span>。狼象征着忠诚、勇气和团队精神，这与李作为飞行员在风暴中保护他人的职责相呼应。</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- World Concepts -->
+        <section id="concepts" class="concepts container">
+            <h2 class="section-title">关键宇宙概念</h2>
+            <div class="concept-list">
+                <div class="concept-item">
+                    <h3>尘埃（Dust）</h3>
+                    <p>这是宇宙中一种神秘的物质，存在于所有有意识的生物周围。它也被称为“微粒子”。尘埃在《黑暗物质》中起着至关重要的作用，它与人类的自由意志和灵魂的存在紧密相关。尘埃的聚集程度随着心智的成熟而增加，这解释了为何成年人比儿童拥有更厚的尘埃层。</p>
+                </div>
+                <div class="concept-item">
+                    <h3>拉曼都</h3>
+                    <p>这是一个位于北方的强大帝国，也是黄金罗盘的发源地。拉曼都以其先进的科学、魔法和强大的军事力量著称。它是一个封闭且等级森严的社会，皇帝拥有至高无上的权力，而罗盘则是其权力的核心工具。</p>
+                </div>
+                <div class="concept-item">
+                    <h3>分界线</h3>
+                    <p>不同世界之间的屏障被称为“分界线”。这里充满了危险和混沌，是穿越宇宙的必经之路，也是许多冒险故事发生的背景。分界线往往伴随着风暴和异常现象。</p>
+                </div>
+                <div class="concept-item">
+                    <h3>尘灵（Angels）</h3>
+                    <p>这些是高维度的生命形式，通常以孩童或发光的球体形态出现。尘灵在宇宙中起着维护秩序和平衡的作用，它们是古老且智慧的存在。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <h2 class="section-title">常见问题</h2>
+            <div class="faq-item">
+                <div class="faq-question">黄金罗盘真的能回答任何问题吗？</div>
+                <div class="faq-answer">
+                    在故事设定中，黄金罗盘被设计为能够回答任何问题。然而，使用者必须具备高度的专注力和解读能力。罗盘的指针移动并不直接给出文字答案，而是通过复杂的排列组合暗示答案，这需要使用者结合直觉和知识进行推理。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">为什么莱拉在成年之前她的凯勒坎佩尔会变形？</div>
+                <div class="faq-answer">
+                    这是因为灵魂之兽会随着宿主心智的成熟而变化。在儿童时期，莱拉尚未完全确定自己的身份和性格，因此她的灵魂之兽也处于不断的探索和变化中。这象征着成长的必经阶段。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">“黑暗物质”这个名字有什么含义？</div>
+                <div class="faq-answer">
+                    “黑暗物质”在物理学中指的是暗物质，但在小说中，它被赋予了更深层的含义，指代一种弥漫在宇宙中、与意识和灵魂有关的神秘能量。它不仅存在于我们的世界，也存在于其他维度中。
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">黄金罗盘的设定与电影版有何不同？</div>
+                <div class="faq-answer">
+                    电影《黄金罗盘》（2007）对原著进行了较大幅度的改编，简化了罗盘的解读机制，并增加了特定的剧情线（如玛丽·莫尔顿的视角）。在电影中，罗盘更像是一个具有魔法力量的实体，而在原著小说中，它更多是作为一种科学仪器和哲学隐喻存在。
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 黑暗物质黄金罗盘资料站. 非官方粉丝站点.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.8rem; opacity: 0.6;">
+                内容仅供学习与交流，不涉及任何商业用途。所有版权归原著作者菲利普·普尔曼及相关机构所有。
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的FAQ折叠逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+
+            // 简单的平滑滚动
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
